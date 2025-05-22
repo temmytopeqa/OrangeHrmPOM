@@ -1,17 +1,17 @@
 # OrangeHrmPOM
 
-# 🚀 CRM Automation Task – Automation Playground
+# Login OrangeHrm automation
 
 ## 🔗 Application URL
 
-https://automationplayground.com/crm/login.html
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
 
 
 
 ## 📌 Project Overview
 
-This automation project is designed to validate key user workflows on the Automation Playground CRM application using the Page Object Model (POM) approach. 
-The automation covers logging into the system, adding a new customer, and logging out successfully.
+This automation project is designed to validate key Login flows on the application using the Page Object Model (POM) approach. 
+The automation covers logging into the system successfully.
 
 
 ## 🎯 Scope of Automation
@@ -23,33 +23,24 @@ The following user flows are automated:
 Automates user login using valid credentials.
 Verifies successful login by checking redirection or dashboard element visibility.
 
-### 2. 🏠 Homepage – Add Customer Action
 
-After login, clicks on the "Add Customer" button to open the customer entry form.
 
-### 3. 🧾 Add Customer Form
-
-Fills out all mandatory fields in the Add Customer form with appropriate test data.
-Submits the form and verifies customer addition (confirmation message or page redirection).
-
-### 4. 🔓 Logout Process
-
-Automates logout process once the customer is successfully added.
-Validates redirection back to the login screen or appropriate logout confirmation.
+Automates login process.
+Validates login credentials
 
 
 ## 🧱 Project Structure (POM)
 
-📁 automation-playground-crm/
+📁 OrangeHrmPOM/
 ├── 📁 pages/                  # Page Object Classes
 │   ├── login_page.py
-│   ├── home_page.py
-│   └── add_customer_page.py
+│   
+│   ── locator_page.py
 ├── 📁 tests/                  # Test Cases
-│   └── test_crm_flow.py
+│   └── test_suite.py
 ├── 📁 utils/                  # Utilities (e.g., config, data)
 │   └── test_data.py
-├── conftest.py               # Pytest fixtures and setup
+├── config.py               # Pytest fixtures and setup
 ├── requirements.txt          # Dependencies
 └── README.md                 # Project Documentation
 
@@ -68,8 +59,8 @@ Validates redirection back to the login screen or appropriate logout confirmatio
 
 1. Clone the Repository**
 
-git clone https://github.com/yourusername/automation-playground-crm.git
-cd automation-playground-crm
+git clone https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+cd opensource-demo.orangeHrmPOM
 
 2. Installed Dependencies
 
@@ -87,14 +78,7 @@ pytest --html=report.html --self-contained-html
 
 python
 login_credentials = {
-    "username": "testuser",
-    "password": "testpass"
-}
-
-new_customer = {
-    "first_name": "John",
-    "last_name": "Doe",
-    "email": "johndoe@example.com",
-    "phone": "1234567890"
+    Username : Admin
+    Password : admin123
 }
 
