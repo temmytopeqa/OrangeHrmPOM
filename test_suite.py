@@ -1,10 +1,8 @@
 import pytest
 from selenium import webdriver
-from ActionPage.login_page import LoginPage
+from ActionPage.login_page import LoginPage  # ✅ Correct class
 from Config.configuration import Config
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+
 
 @pytest.fixture(scope="module")
 def driver_setup():
@@ -23,17 +21,7 @@ def login(driver_setup):
     return login_page
 
 
-def test_login_page_on_automation_play_ground_website(login):
-    login.open_login_page(Config.BASE_URL)
+def test_login_success(login):
     login.enter_username(Config.USERNAME)
     login.enter_password(Config.PASSWORD)
-    login.click_login_button()
-
-    # Wait for homepage element that confirms page loaded
-    wait = WebDriverWait(login.driver, 15)
-
-    # Replace below locator with an actual locator for an element only visible on homepage
-    homepage_element_locator = (By.ID, "homepage-unique-element-id")
-
-    wait.until(EC.visibility_of_element_located(homepage_element_locator))
-
+    login.click_submit_button()

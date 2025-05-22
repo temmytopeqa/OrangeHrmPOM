@@ -1,30 +1,39 @@
-from selenium.webdriver.common.by import By
+import time
+
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.wait import WebDriverWait
+
 from LocatorPage.locator_page import LoginLocators
 
+#Time Variable
+DEFAULT_SLEEP_TIME = 5
+
 class LoginPage:
+# Initializing our browser
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 20)
 
+
+# Calling our URL
     def open_login_page(self, url):
         self.driver.get(url)
 
+# Login page
     def enter_username(self, username):
-        username_field = self.wait.until(
-            EC.visibility_of_element_located((By.NAME, "username"))
-        )
-        username_field.send_keys(username)
+        enter_username = WebDriverWait(self.driver, 20).until(
+            EC.presence_of_element_located(LoginLocators.USERNAME))
+        enter_username.send_keys(username)
+        time.sleep(DEFAULT_SLEEP_TIME)
+
 
     def enter_password(self, password):
-        password_field = self.wait.until(
-            EC.visibility_of_element_located((By.NAME, "password"))
-        )
-        password_field.send_keys(password)
+        enter_password = WebDriverWait(self.driver, 20).until(
+            EC.presence_of_element_located(LoginLocators.PASSWORD))
+        enter_password.send_keys(password)
+        time.sleep(DEFAULT_SLEEP_TIME)
 
-    def click_login_button(self):
-        login_button = self.wait.until(
-            EC.element_to_be_clickable((By.TAG_NAME, "button"))
-        )
-        login_button.click()
+    def click_submit_button(self):
+        click_submit_button = WebDriverWait(self.driver, 20).until(
+            EC.presence_of_element_located(LoginLocators.SUBMIT_BUTTON))
+        click_submit_button.click()
+        time.sleep(DEFAULT_SLEEP_TIME)

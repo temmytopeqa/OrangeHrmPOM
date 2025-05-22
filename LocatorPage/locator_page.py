@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
+
 class LoginLocators:
-    USERNAME = (By.ID, "user-name")
-    PASSWORD = (By.ID, "password")
-    SUBMIT = (By.ID, "login-button")
-    DASHBOARD_HEADER = (By.XPATH, "//header//div[1]/div[1]")  # Adjust name for clarity
+    USERNAME = (By.CSS_SELECTOR, "input[name='username']")
+    PASSWORD = (By.CSS_SELECTOR, "Input[name='password']")
+    SUBMIT_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
